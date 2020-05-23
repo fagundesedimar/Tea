@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "986471599355",
+    "firebase_url": "https://projetotea-db194.firebaseio.com",
+    "project_id": "projetotea-db194",
+    "storage_bucket": "projetotea-db194.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986471599355:android:b0b998aa52f8c7871e745e",
+        "android_client_info": {
+          "package_name": "tcc.com.br.tea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986471599355-55mm2h9emht0ivkgotbiip14in8skpdv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHCvFwgWj5mFBdJb9yStd-NhllJYAs8zk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986471599355-55mm2h9emht0ivkgotbiip14in8skpdv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

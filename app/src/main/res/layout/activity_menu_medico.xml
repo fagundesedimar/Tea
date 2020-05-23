@@ -1,0 +1,82 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.EscolhaSouUmActivity">
+<!--    android:background="@drawable/nuvem"-->
+<!--    Menu Medico-->
+
+    <Button
+        android:id="@+id/btn_voltar_menu_medico"
+        android:layout_width="140dp"
+        android:layout_height="36dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="medicamentoM"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Voltar"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bnt_crises_menu_medico" />
+
+    <Button
+        android:id="@+id/bnt_crises_menu_medico"
+        android:layout_width="197dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="Rcrise"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="crises"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bnt_recomendacoes_menu_medico" />
+
+    <Button
+        android:id="@+id/bnt_recomendacoes_menu_medico"
+        android:layout_width="197dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="recomendaM"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Recomendações"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bnt_medicacao_menu_medico" />
+
+    <Button
+        android:id="@+id/bnt_medicacao_menu_medico"
+        android:layout_width="197dp"
+        android:layout_height="40dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Medicação"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

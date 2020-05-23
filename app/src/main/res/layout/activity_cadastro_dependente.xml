@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--    android:background="@drawable/nuvem" >-->
+
+    <TextView
+        android:id="@+id/text_nome_cad_dependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome:"
+        android:layout_marginTop="15dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/campo_nome_cad_dependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Nome"
+        android:inputType="textCapWords
+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_nome_cad_dependente" />
+
+    <TextView
+        android:id="@+id/text_data_nascimento_cad_dependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Data de Nasciemnto:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_nome_cad_dependente"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/campo_data_nasc_cad_dependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Data de Nascimento"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_data_nascimento_cad_dependente"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text_endereco_cad_depedente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Endereço:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_data_nasc_cad_dependente"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/campo_endereco_cad_dependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Endereço"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_endereco_cad_depedente"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text_contato_cad_dependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Contato:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_endereco_cad_dependente"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/campo_contato_cad_dependente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Contato"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_contato_cad_dependente"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btn_salvar_cad_dependente"
+        android:layout_width="139dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="34dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Salvar"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"/>
+<!--        tools:ignore="MissingConstraints" />-->
+
+    <Button
+        android:id="@+id/btn_voltar_cad_dependente"
+        android:layout_width="139dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="34dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="listaM"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Voltar"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

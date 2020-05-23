@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--    android:background="@drawable/nuvem">-->
+
+    <TextView
+        android:id="@+id/text_titulo_inser_medicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="INSIRA OS MEDICAMENTOS:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/campo_ins_medicamento1"
+        android:layout_width="249dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1_ins_medicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento1"
+        tools:ignore="MissingConstraints,NewApi"
+        tools:layout_editor_absoluteY="55dp" />
+
+    <EditText
+        android:id="@+id/campo_ins_medicamento2"
+        android:layout_width="249dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento1" />
+
+    <Switch
+        android:id="@+id/switch2_ins_medicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="97dp" />
+
+    <EditText
+        android:id="@+id/campo_ins_medicamento3"
+        android:layout_width="249dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento2" />
+
+    <Switch
+        android:id="@+id/switch3_ins_medicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento3"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="139dp" />
+
+    <EditText
+        android:id="@+id/campo_ins_medicamento4"
+        android:layout_width="249dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento3" />
+
+    <Switch
+        android:id="@+id/switch4_ins_medicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento4"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="181dp" />
+
+    <EditText
+        android:id="@+id/campo_ins_medicamento5"
+        android:layout_width="249dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento4" />
+
+    <Switch
+        android:id="@+id/switc5_ins_medicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento5"
+        tools:ignore="MissingConstraints,NewApi"
+        tools:layout_editor_absoluteY="223dp" />
+
+    <EditText
+        android:id="@+id/campo_ins_medicamento6"
+        android:layout_width="249dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento5" />
+
+
+    <Switch
+        android:id="@+id/switc6_ins_medicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento6"
+        tools:ignore="MissingConstraints,NewApi"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <EditText
+        android:id="@+id/campo_ins_medicamento7"
+        android:layout_width="249dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento6" />
+
+    <Switch
+        android:id="@+id/switc7_ins_medicamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento7"
+        tools:ignore="MissingConstraints,NewApi"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <Button
+        android:id="@+id/angry_btn8"
+
+        android:layout_width="143dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="34dp"
+
+        android:background="@drawable/buttonshape"
+        android:onClick="menuM"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Voltar"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
+    <Button
+        android:id="@+id/angry_btn12"
+
+        android:layout_width="143dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="34dp"
+
+        android:background="@drawable/buttonshape"
+        android:onClick="menuM"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Salvar"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.9" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
