@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
@@ -137,7 +138,9 @@ public class CadastroResponsavelActivity extends AppCompatActivity {
                 boolean resultado = task.isSuccessful();
 
                 if(resultado){
+                   // startActivity(new Intent(getBaseContext(),LoginResponsavelActivity.class));
                     Toast.makeText(getBaseContext(),"Cadastro efetuado com sucesso",Toast.LENGTH_LONG).show();
+                    //finish();
                 } else {
                     String resposta = task.getException().toString();
                     opçoesErroFirebase(resposta);
@@ -199,13 +202,9 @@ public class CadastroResponsavelActivity extends AppCompatActivity {
         if (conexao != null){
             // PARA DISPOSTIVOS NOVOS
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
                 NetworkCapabilities recursosRede = conexao.getNetworkCapabilities(conexao.getActiveNetwork());
-
                 if (recursosRede != null) {//VERIFICAMOS SE RECUPERAMOS ALGO
-
-                    if (recursosRede.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
-                        //VERIFICAMOS SE DISPOSITIVO TEM 3G
+                    if (recursosRede.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {                        //VERIFICAMOS SE DISPOSITIVO TEM 3G
                         return true;
                     }
                     else if (recursosRede.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
@@ -215,19 +214,14 @@ public class CadastroResponsavelActivity extends AppCompatActivity {
                     //NÃO POSSUI UMA CONEXAO DE REDE VÁLIDA
                     return false;
                 }
-
             } else {//COMECO DO ELSE
-
                 // PARA DISPOSTIVOS ANTIGOS  (PRECAUÇÃO)
                 NetworkInfo informacao = conexao.getActiveNetworkInfo();
-
                 if (informacao != null && informacao.isConnected()) {
                     status = true;
                 } else
                     status = false;
-
                 return status;
-
             }//FIM DO ELSE
         }
         return false;
