@@ -32,6 +32,7 @@ import java.util.List;
 
 import tcc.com.br.tea.R;
 import tcc.com.br.tea.model.Responsavel;
+import tcc.com.br.tea.util.Util;
 
 public class CadastroResponsavelActivity extends AppCompatActivity {
 
@@ -119,7 +120,7 @@ public class CadastroResponsavelActivity extends AppCompatActivity {
         } else {
 
             if (senha.contentEquals(confirmaSenha)) {
-                if (statusInternet_MoWi(getBaseContext())) {
+                if (Util.statusInternet_MoWi(getBaseContext())) {
                     criarUsuarioResponsavel(emailLogin, senha);
                 } else {
                     Toast.makeText(getBaseContext(),"Erro - Verifique seu sinal Wifi ou 3,4G!",Toast.LENGTH_LONG).show();
@@ -138,29 +139,15 @@ public class CadastroResponsavelActivity extends AppCompatActivity {
                 boolean resultado = task.isSuccessful();
 
                 if(resultado){
-                   // startActivity(new Intent(getBaseContext(),LoginResponsavelActivity.class));
-                    Toast.makeText(getBaseContext(),"Cadastro efetuado com sucesso",Toast.LENGTH_LONG).show();
-                    //finish();
+                    startActivity(new Intent(getBaseContext(),LoginResponsavelActivity.class));
+                    Toast.makeText(getBaseContext(),"Cadastro efetuado com sucesso, Você já pode realizar seu login.",Toast.LENGTH_LONG).show();
+                    finish();
                 } else {
                     String resposta = task.getException().toString();
-                    opçoesErroFirebase(resposta);
+                    Util.opçoesErroFirebase(getBaseContext(), resposta);
                 }
             }
         });
-    }
-
-    private void opçoesErroFirebase(String resposta) {
-        if (resposta.contains("least 6 characters")){
-            Toast.makeText(getBaseContext(),"Erro - Senha deve ter no minimo 6 caracteres!",Toast.LENGTH_LONG).show();
-        } else if (resposta.contains("address is badly")) {
-            Toast.makeText(getBaseContext(),"Erro - E-mail Invalido!",Toast.LENGTH_LONG).show();
-        } else if (resposta.contains("address is already")) {
-            Toast.makeText(getBaseContext(),"Erro - E-mail já existe Cadastrado!",Toast.LENGTH_LONG).show();
-        } else if (resposta.contains("interrupted connection")) {
-            Toast.makeText(getBaseContext(),"Erro - Sem conexão com Firebase, (Banco de Dados)!",Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(getBaseContext(),resposta,Toast.LENGTH_LONG).show();
-        }
     }
 
     private void addResponsavel() {
@@ -191,40 +178,6 @@ public class CadastroResponsavelActivity extends AppCompatActivity {
         campoContato.setText("");
         campoEmailLogin.setText("");
         campoSenha.setText("");
-    }
-
-
-
-    public static boolean statusInternet_MoWi(Context context) {
-        boolean status = false;
-        ConnectivityManager conexao = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (conexao != null){
-            // PARA DISPOSTIVOS NOVOS
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                NetworkCapabilities recursosRede = conexao.getNetworkCapabilities(conexao.getActiveNetwork());
-                if (recursosRede != null) {//VERIFICAMOS SE RECUPERAMOS ALGO
-                    if (recursosRede.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {                        //VERIFICAMOS SE DISPOSITIVO TEM 3G
-                        return true;
-                    }
-                    else if (recursosRede.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-                        //VERIFICAMOS SE DISPOSITIVO TEM WIFFI
-                        return true;
-                    }
-                    //NÃO POSSUI UMA CONEXAO DE REDE VÁLIDA
-                    return false;
-                }
-            } else {//COMECO DO ELSE
-                // PARA DISPOSTIVOS ANTIGOS  (PRECAUÇÃO)
-                NetworkInfo informacao = conexao.getActiveNetworkInfo();
-                if (informacao != null && informacao.isConnected()) {
-                    status = true;
-                } else
-                    status = false;
-                return status;
-            }//FIM DO ELSE
-        }
-        return false;
     }
 
 }

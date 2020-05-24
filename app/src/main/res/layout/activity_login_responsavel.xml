@@ -30,10 +30,8 @@
 
     <Button
         android:id="@+id/btn_entrar_login_responsavel"
-
         android:layout_width="0dp"
         android:layout_height="39dp"
-
         android:layout_marginStart="34dp"
         android:background="@drawable/buttonshape"
         android:onClick="loginR"

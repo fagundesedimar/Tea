@@ -21,6 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import tcc.com.br.tea.R;
+import tcc.com.br.tea.util.Util;
 
 public class LoginResponsavelActivity extends AppCompatActivity {
 
@@ -28,8 +29,8 @@ public class LoginResponsavelActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private EditText campoEmailLogin;
     private EditText campoSenha;
-//    private Button btnEntrarLoginRespon;
-//    private Button btnNovoCadastro;
+    private Button btnEntrarLoginRespon;
+    private Button btnNovoCadastro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,6 @@ public class LoginResponsavelActivity extends AppCompatActivity {
         campoSenha = findViewById(R.id.text_senha_login_responsavel);
 
         setTitle(TITULO_APPBAR);
-
 //        btnEntrarLoginRespon = (Button) findViewById(R.id.btn_entrar_login_responsavel);
 //        btnEntrarLoginRespon.setOnClickListener((View.OnClickListener) this);
 //        btnNovoCadastro = (Button) findViewById(R.id.btn_novoCadastro_login_responsavel);
@@ -51,9 +51,9 @@ public class LoginResponsavelActivity extends AppCompatActivity {
         btnEntrarLoginRespon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginResponsavelActivity.this, ListaDependenteActivity.class);
+                //Intent intent = new Intent(LoginResponsavelActivity.this, ListaDependenteActivity.class);
                 loginEmail();
-                startActivity(intent);
+                //startActivity(intent);
             }
         });
 
@@ -86,7 +86,7 @@ public class LoginResponsavelActivity extends AppCompatActivity {
         if (email.isEmpty() || senha.isEmpty()) {
             Toast.makeText(getBaseContext(), "Erro: Favor preencher todos os campos!", Toast.LENGTH_LONG).show();
         } else {
-            if (statusInternet_MoWi(getBaseContext())) {
+            if (Util.statusInternet_MoWi(getBaseContext())) {
                 confirmarLoginEmail(email, senha);
             } else {
                 Toast.makeText(getBaseContext(), "Erro - Verifique seu sinal Wifi ou 3,4G!", Toast.LENGTH_LONG).show();
@@ -99,66 +99,15 @@ public class LoginResponsavelActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
-                   // startActivity(new Intent(getBaseContext(),ListaDependenteActivity.class));
+                    startActivity(new Intent(getBaseContext(),ListaDependenteActivity.class));
                     Toast.makeText(getBaseContext(), "Usuário Logado com Sucesso", Toast.LENGTH_LONG).show();
-                    //finish();
+                    finish();
                 } else  {
                     String resposta = task.getException().toString();
-                    opçoesErroFirebase(resposta);
+                    Util.opçoesErroFirebase(getBaseContext() ,resposta);
                 }
             }
         });
     }
-
-    private void opçoesErroFirebase(String resposta) {
-        if (resposta.contains("least 6 characters")){
-            Toast.makeText(getBaseContext(),"Erro - Senha deve ter no minimo 6 caracteres!",Toast.LENGTH_LONG).show();
-        } else if (resposta.contains("address is badly")) {
-            Toast.makeText(getBaseContext(),"Erro - E-mail Invalido!",Toast.LENGTH_LONG).show();
-        } else if (resposta.contains("interrupted connection")) {
-            Toast.makeText(getBaseContext(),"Erro - Sem conexão com Firebase, (Banco de Dados)!",Toast.LENGTH_LONG).show();
-        } else if (resposta.contains("password is invalid")) {
-            Toast.makeText(getBaseContext(),"Erro - Senha Invalida!",Toast.LENGTH_LONG).show();
-        }else if (resposta.contains("There is no user")) {
-            Toast.makeText(getBaseContext(),"Erro - E-mail não Cadastrado!",Toast.LENGTH_LONG).show();
-        }
-        else {
-            Toast.makeText(getBaseContext(),resposta,Toast.LENGTH_LONG).show();
-        }
-    }
-
-    public static boolean statusInternet_MoWi(Context context) {
-        boolean status = false;
-        ConnectivityManager conexao = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (conexao != null){
-            // PARA DISPOSTIVOS NOVOS
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                NetworkCapabilities recursosRede = conexao.getNetworkCapabilities(conexao.getActiveNetwork());
-                if (recursosRede != null) {//VERIFICAMOS SE RECUPERAMOS ALGO
-                    if (recursosRede.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) { //VERIFICAMOS SE DISPOSITIVO TEM 3G
-                        return true;
-                    }
-                    else if (recursosRede.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
-                        //VERIFICAMOS SE DISPOSITIVO TEM WIFFI
-                        return true;
-                    }
-                    //NÃO POSSUI UMA CONEXAO DE REDE VÁLIDA
-                    return false;
-                }
-            } else {//COMECO DO ELSE
-                // PARA DISPOSTIVOS ANTIGOS  (PRECAUÇÃO)
-                NetworkInfo informacao = conexao.getActiveNetworkInfo();
-                if (informacao != null && informacao.isConnected()) {
-                    status = true;
-                } else
-                    status = false;
-                return status;
-            }//FIM DO ELSE
-        }
-        return false;
-    }
-
-
 
 }
