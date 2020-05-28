@@ -15,14 +15,13 @@ import tcc.com.br.tea.model.Dependente;
 
 public class ListaDependentesAdapter extends BaseAdapter {
 
-    private final List<Dependente> dependentes = new ArrayList<>();
+    private final List<Dependente> dependentes;
     private Context context;
 
-    public ListaDependentesAdapter(Context context) {
+    public ListaDependentesAdapter(List<Dependente> dependentes, Context context) {
+        this.dependentes = dependentes;
         this.context = context;
     }
-
-
 
     @Override
     public int getCount() {
@@ -40,12 +39,13 @@ public class ListaDependentesAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int posicao, View view, ViewGroup viewGroup) {
-        View viewCriada = LayoutInflater.from(context).inflate(R.layout.item_dependente, viewGroup, false);
+    public View getView(int posicao, View view, ViewGroup parent) {
+        View viewCriada = LayoutInflater.from(context).inflate(R.layout.item_dependente, parent, false);
 
         Dependente dependenteDevolvido = dependentes.get(posicao);
         TextView nome = viewCriada.findViewById(R.id.item_dependente_nome);
         nome.setText(dependenteDevolvido.getNome());
+
         TextView notificacao = viewCriada.findViewById(R.id.item_notificacao);
         notificacao.setText(dependenteDevolvido.getContato());
 
