@@ -1,4 +1,4 @@
-package tcc.com.br.tea.ui.activity.adapter;
+package tcc.com.br.tea.ui.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,11 +15,12 @@ import tcc.com.br.tea.model.Dependente;
 
 public class ListaDependentesAdapter extends BaseAdapter {
 
-    private final List<Dependente> dependentes;
-    private Context context;
+    private final List<Dependente> dependentes = new ArrayList<>();
 
-    public ListaDependentesAdapter(List<Dependente> dependentes, Context context) {
-        this.dependentes = dependentes;
+    private final Context context;
+   // public ListaDependentesAdapter(List<Dependente> dependentes, Context context)
+    public ListaDependentesAdapter( Context context) {
+        //this.dependentes = dependentes;
         this.context = context;
     }
 
@@ -43,6 +44,7 @@ public class ListaDependentesAdapter extends BaseAdapter {
         View viewCriada = LayoutInflater.from(context).inflate(R.layout.item_dependente, parent, false);
 
         Dependente dependenteDevolvido = dependentes.get(posicao);
+
         TextView nome = viewCriada.findViewById(R.id.item_dependente_nome);
         nome.setText(dependenteDevolvido.getNome());
 

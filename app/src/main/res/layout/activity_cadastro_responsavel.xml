@@ -24,7 +24,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="23dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/text_contato_cad_responsavel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

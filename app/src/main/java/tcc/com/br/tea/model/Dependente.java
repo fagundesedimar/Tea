@@ -21,7 +21,7 @@ public class Dependente implements Serializable {
 
     }
 
-     public void  setNome(String nome) {
+    public void  setNome(String nome) {
          this.nome = nome;
      }
 

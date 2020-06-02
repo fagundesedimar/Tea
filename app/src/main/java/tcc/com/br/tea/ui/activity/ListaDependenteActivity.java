@@ -5,18 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import tcc.com.br.tea.R;
 import tcc.com.br.tea.dao.DependenteDao;
 import tcc.com.br.tea.model.Dependente;
-import tcc.com.br.tea.ui.activity.adapter.ListaDependentesAdapter;
+import tcc.com.br.tea.ui.adapter.ListaDependentesAdapter;
 
 import static tcc.com.br.tea.ui.activity.ConstantesActivities.CHAVE_DEPENDENTE;
 
@@ -35,11 +30,18 @@ public class ListaDependenteActivity extends AppCompatActivity {
         configuraFabNovoDependente();
         configuraLista();
 
-        daoDepend.salva(new Dependente("Renato", "29031999", "Rua sem nome", "22223333"));
+       daoDepend.salva(new Dependente("Renato", "29031999", "Rua sem nome", "22223333"));
 
-        List<Dependente> dependentes = new DependenteDao().todosDepend();
+
+    }
+
+    private void configuraLista() {
+       // List<Dependente> dependentes = new DependenteDao().todosDepend();
         ListView listaDependente = findViewById(R.id.activity_lista_dependente_listView);
-        listaDependente.setAdapter(new ListaDependentesAdapter(dependentes, this));
+        configuraAdapter(listaDependente);
+
+        //listaDependente.setAdapter(new ListaDependentesAdapter(daoDepend.todosDepend(), this));
+
     }
 
     private void configuraFabNovoDependente() {
@@ -59,15 +61,11 @@ public class ListaDependenteActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        configuraLista();
+        atualizaDependente();
     }
 
-    private void configuraLista() {
-        ListView listaDeDependentes = findViewById(R.id.activity_lista_dependente_listView);
-        configuraAdapter(listaDeDependentes);
-        configuraListenerDeCliquePorItem(listaDeDependentes);
-
-
+    private void atualizaDependente() {
+        adapter.atualiza(daoDepend.todosDepend());
     }
 
     private void configuraListenerDeCliquePorItem(ListView listaDeDependentes) {
@@ -87,9 +85,8 @@ public class ListaDependenteActivity extends AppCompatActivity {
     }
 
     private void configuraAdapter(ListView listaDeDependentes) {
-        //adapter = new ListaDependentesAdapter(, this);
+        adapter = new ListaDependentesAdapter( this);
         listaDeDependentes.setAdapter(adapter);
-
     }
 
 }

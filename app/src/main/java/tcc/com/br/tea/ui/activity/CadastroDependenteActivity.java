@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,15 +32,12 @@ public class CadastroDependenteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_dependente);
 
-        inicializandoCamposDepend();
         //setTitle(TITULO_APPBAR_NOVO_DEPENDENTE);
+
+        inicializandoCamposDepend();
         carragrDependente();
-
-       // configuraBotaoSalvar();
+        configuraBotaoSalvar();
     }
-
-
-
 
     private void carragrDependente() {
         Intent dados = getIntent();
@@ -61,17 +59,22 @@ public class CadastroDependenteActivity extends AppCompatActivity {
         campoContato.setText(dependente.getEndereco());
     }
 
-//    private void configuraBotaoSalvar() {
-//        Button botao_salvar_dependente = findViewById(R.id.btn_salvar_cad_dependente);
-//        botao_salvar_dependente.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+    private void configuraBotaoSalvar() {
+        Button botao_salvar_dependente = findViewById(R.id.btn_salvar_cad_dependente);
+        botao_salvar_dependente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //                Dependente dependenteCriado = criaDependente();
 //                salvaDepend(dependenteCriado);
-//
-//            }
-//        });
-//    }
+                salvaDepend(dependente);
+                preencheDependente();
+
+                Toast.makeText(CadastroDependenteActivity.this, "teste", Toast.LENGTH_SHORT).show();
+               // dependenteDao.edita(dependente);
+                finish();
+            }
+        });
+    }
 
     private void inicializandoCamposDepend() {
         campoNome = (EditText) findViewById(R.id.campo_nome_cad_dependente);
@@ -86,7 +89,7 @@ public class CadastroDependenteActivity extends AppCompatActivity {
         finish();
     }
 
-    private void criaDependente() {
+    private void preencheDependente() {
         String nome = campoNome.getText().toString();
         String dataNascimento = campoDataNascimento.getText().toString();
         String endereco = campoEndereco.getText().toString();
@@ -96,7 +99,10 @@ public class CadastroDependenteActivity extends AppCompatActivity {
         dependente.setDataNascimento(dataNascimento);
         dependente.setEndereco(endereco);
         dependente.setContato(contato);
+//        Dependente dependenteCriado = new Dependente("Joao", "222222", "Rua sei la", "22552255");
+//        return new Dependente(nome, dataNascimento, endereco, contato);
 
     }
+
 
 }
