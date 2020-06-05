@@ -2,11 +2,13 @@ package tcc.com.br.tea.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import tcc.com.br.tea.R;
@@ -32,16 +34,33 @@ public class CadastroDependenteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_dependente);
 
-        //setTitle(TITULO_APPBAR_NOVO_DEPENDENTE);
-
         inicializandoCamposDepend();
         carragrDependente();
         configuraBotaoSalvar();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.btn_salvar_cad_dependente) {
+            finalizaCadastro();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void finalizaCadastro() {
+        preencheDependente();
+        if (dependente.temIdValido()) {
+            dependenteDao.edita(dependente);
+        } else {
+            dependenteDao.salva(dependente);
+        }
+        finish();
+    }
+
     private void carragrDependente() {
         Intent dados = getIntent();
-        if (dados.hasExtra(CHAVE_DEPENDENTE)){
+        if (dados.hasExtra(CHAVE_DEPENDENTE)) {
             setTitle(TITULO_APPBAR_EDITA_DEPENDENTE);
             dependente = (Dependente) dados.getSerializableExtra(CHAVE_DEPENDENTE);
             preencheCampos();
@@ -64,13 +83,8 @@ public class CadastroDependenteActivity extends AppCompatActivity {
         botao_salvar_dependente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Dependente dependenteCriado = criaDependente();
-//                salvaDepend(dependenteCriado);
-                salvaDepend(dependente);
-                preencheDependente();
-
-                Toast.makeText(CadastroDependenteActivity.this, "teste", Toast.LENGTH_SHORT).show();
-               // dependenteDao.edita(dependente);
+                finalizaCadastro();
+                Toast.makeText(CadastroDependenteActivity.this, "Salvo com Sucesso", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
@@ -83,12 +97,6 @@ public class CadastroDependenteActivity extends AppCompatActivity {
         campoContato = (EditText) findViewById(R.id.campo_contato_cad_dependente);
     }
 
-    private void salvaDepend(Dependente dependente) {
-        dependenteDao.salva(dependente);
-        //finaliza a activity assim que finaliza o cadastro do um novo dependent
-        finish();
-    }
-
     private void preencheDependente() {
         String nome = campoNome.getText().toString();
         String dataNascimento = campoDataNascimento.getText().toString();
@@ -99,9 +107,6 @@ public class CadastroDependenteActivity extends AppCompatActivity {
         dependente.setDataNascimento(dataNascimento);
         dependente.setEndereco(endereco);
         dependente.setContato(contato);
-//        Dependente dependenteCriado = new Dependente("Joao", "222222", "Rua sei la", "22552255");
-//        return new Dependente(nome, dataNascimento, endereco, contato);
-
     }
 
 

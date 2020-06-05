@@ -30,8 +30,9 @@ public class ListaDependenteActivity extends AppCompatActivity {
         configuraFabNovoDependente();
         configuraLista();
 
-       daoDepend.salva(new Dependente("Renato", "29031999", "Rua sem nome", "22223333"));
 
+       daoDepend.salva(new Dependente("Joaquim de Paula", "29031999", "Rua sem nome", "22223333"));
+       daoDepend.salva(new Dependente("Maria Florisbela", "29031999", "Rua sem nome", "999999999"));
 
     }
 
@@ -39,9 +40,7 @@ public class ListaDependenteActivity extends AppCompatActivity {
        // List<Dependente> dependentes = new DependenteDao().todosDepend();
         ListView listaDependente = findViewById(R.id.activity_lista_dependente_listView);
         configuraAdapter(listaDependente);
-
-        //listaDependente.setAdapter(new ListaDependentesAdapter(daoDepend.todosDepend(), this));
-
+        configuraListenerDeCliquePorItem(listaDependente);
     }
 
     private void configuraFabNovoDependente() {
@@ -85,7 +84,7 @@ public class ListaDependenteActivity extends AppCompatActivity {
     }
 
     private void configuraAdapter(ListView listaDeDependentes) {
-        adapter = new ListaDependentesAdapter( this);
+        adapter = new ListaDependentesAdapter(daoDepend.todosDepend(),this);
         listaDeDependentes.setAdapter(adapter);
     }
 
