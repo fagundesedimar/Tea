@@ -5,13 +5,18 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,23 +28,12 @@ import tcc.com.br.tea.model.Dependente;
 public class DependenteDao {
 
     private static final String TAG = "";
-    private final static List<Dependente> dependentes = new ArrayList<>();
+    private static List<Dependente> dependentes = new ArrayList<>();
     private static int contadorDeIds = 1;
-//    DatabaseReference databaseReference;
 
 
-
-
-    public void addDependenteFireBase(Dependente dependente) {
+    public void addDependenteFireBase(final Dependente dependente) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-
-//        databaseReference.child("dependente").push().setValue(dependentes,
-//                new DatabaseReference.CompletionListener() {
-//                    @Override
-//                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
-//                        atualizaIds();
-//                    }
-//                });
 
         Map<String, Object> dep = new HashMap<>();
         dep.put("id", dependente.getId());
@@ -51,8 +45,9 @@ public class DependenteDao {
         db.collection("deps").add(dep).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
+                salva(dependente);
                 Log.d(TAG, "Documento adicionado com ID: " + documentReference.getId());
-                atualizaIds();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -64,7 +59,8 @@ public class DependenteDao {
     }
 
 
-    public static void salva(Dependente dependente) {
+    public void salva(Dependente dependente) {
+
         dependente.setId(contadorDeIds);
         dependentes.add(dependente);
         atualizaIds();
@@ -91,8 +87,32 @@ public class DependenteDao {
         return null;
     }
 
+    public void retornaDependenteFirebase() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("deps")
+                .whereEqualTo("deps", true)
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                                dependentes = (List<Dependente>) document.getData();
+
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
+
+    }
+
     //mandando copia da lista de dependente para as modificaçoes
     public List<Dependente> todosDepend() {
+        retornaDependenteFirebase();
         return new ArrayList<>(dependentes);
     }
 

@@ -23,14 +23,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                android:background="#03A9F4"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/item_dependente_nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:background="@android:drawable/screen_background_dark_transparent"
+
                 android:padding="8dp"
                 android:textSize="24sp"
+                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -38,6 +49,7 @@
                 app:layout_constraintTop_toTopOf="@id/seg_constraint_item"
                 app:layout_constraintVertical_bias="0.0"
                 tools:text="Alex" />
+<!--            android:background="@android:drawable/screen_background_dark_transparent"-->
 
             <TextView
                 android:id="@+id/item_notificacao"
@@ -45,7 +57,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="8dp"
-                android:background="@android:drawable/screen_background_dark_transparent"
+
+                android:textColor="@android:color/white"
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

@@ -7,6 +7,16 @@
 <!--    android:background="@drawable/nuvem"-->
 <!--    LISTA DE PACIENTES-->
 
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/nuvem"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Button
         android:id="@+id/btn_sair_lista_pacien_medico"
         android:layout_width="160dp"

@@ -64,7 +64,8 @@ public class ListaDependenteActivity extends AppCompatActivity {
     }
 
     private void atualizaDependente() {
-        adapter.atualiza(daoDepend.todosDepend());
+       adapter.atualiza(daoDepend.todosDepend());
+       // adapter.atualiza(daoDepend.retornaDependenteFirebase());
     }
 
     private void configuraListenerDeCliquePorItem(ListView listaDeDependentes) {
@@ -85,6 +86,7 @@ public class ListaDependenteActivity extends AppCompatActivity {
 
     private void configuraAdapter(ListView listaDeDependentes) {
         adapter = new ListaDependentesAdapter(daoDepend.todosDepend(),this);
+        //adapter = new ListaDependentesAdapter(daoDepend.retornaDependenteFirebase(),this);
         listaDeDependentes.setAdapter(adapter);
     }
 
