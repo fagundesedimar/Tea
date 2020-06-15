@@ -17,13 +17,14 @@ public class Dependente implements Serializable {
         this.contato = contato;
     }
 
-    public Dependente(){
+    public Dependente() {
 
     }
 
-    public void  setNome(String nome) {
-         this.nome = nome;
-     }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
@@ -61,7 +62,7 @@ public class Dependente implements Serializable {
         this.id = id;
     }
 
-    public boolean temIdValido(){
+    public boolean temIdValido() {
         return id > 0;
     }
 

@@ -32,7 +32,7 @@ public class ListaDependenteActivity extends AppCompatActivity {
 
 
        daoDepend.salva(new Dependente("Joaquim de Paula", "29031999", "Rua sem nome", "22223333"));
-       daoDepend.salva(new Dependente("Maria Florisbela", "29031999", "Rua sem nome", "999999999"));
+       daoDepend.salva(new Dependente("Maria Florisbela", "29031999", "Rua sem saida", "999999999"));
 
     }
 
@@ -86,7 +86,7 @@ public class ListaDependenteActivity extends AppCompatActivity {
 
     private void configuraAdapter(ListView listaDeDependentes) {
         adapter = new ListaDependentesAdapter(daoDepend.todosDepend(),this);
-        //adapter = new ListaDependentesAdapter(daoDepend.retornaDependenteFirebase(),this);
+       // adapter = new ListaDependentesAdapter(daoDepend.retornaDependenteFirebase(),this);
         listaDeDependentes.setAdapter(adapter);
     }
 

@@ -30,28 +30,31 @@ public class DependenteDao {
     private static final String TAG = "";
     private static List<Dependente> dependentes = new ArrayList<>();
     private static int contadorDeIds = 1;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
     public void addDependenteFireBase(final Dependente dependente) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+       // FirebaseFirestore db = FirebaseFirestore.getInstance();
+
 
         Map<String, Object> dep = new HashMap<>();
         dep.put("id", dependente.getId());
         dep.put("nome", dependente.getNome());
         dep.put("contato", dependente.getContato());
         dep.put("nascimento", dependente.getDataNascimento());
+
         Log.i(TAG, "Documento adicionado com ID: " + dep);
 
         db.collection("deps").add(dep).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                salva(dependente);
                 Log.d(TAG, "Documento adicionado com ID: " + documentReference.getId());
 
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                salva(dependente);
                 Log.w(TAG, "Erro em Registro Firebase!!", e);
 
             }
@@ -60,7 +63,6 @@ public class DependenteDao {
 
 
     public void salva(Dependente dependente) {
-
         dependente.setId(contadorDeIds);
         dependentes.add(dependente);
         atualizaIds();
@@ -88,25 +90,45 @@ public class DependenteDao {
     }
 
     public void retornaDependenteFirebase() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        final Dependente dependente;
+       // FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("deps")
-                .whereEqualTo("deps", true)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//        DocumentReference docRef = db.collection("deps").document("deps");
+//
+//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                if (task.isSuccessful()) {
+//                    DocumentSnapshot document = task.getResult();
+//                    if (document.exists()) {
+//                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+//                    } else {
+//                        Log.d(TAG, "ESSE DOCUMENTO NAO EXISTE!!!");
+//                    }
+//                } else {
+//                    Log.d(TAG, "ERRO DO FIREBASE: ", task.getException());
+//                }
+//            }
+//        });
+
+
+        db.collection("deps").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
-                                dependentes = (List<Dependente>) document.getData();
+                                //dependentes = (List<Dependente>) document.getData();
+//                                dependente = new Dependente();
+                                Log.i(TAG, "DEPENDENTES RETORNADOS DO FIREBASE: " + dependentes);
 
                             }
                         } else {
-                            Log.d(TAG, "Error getting documents: ", task.getException());
+                            Log.d(TAG, "Error de retornar dependentes do FireBase: ", task.getException());
                         }
                     }
                 });
+
 
     }
 
