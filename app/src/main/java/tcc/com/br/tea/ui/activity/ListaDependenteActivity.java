@@ -31,8 +31,8 @@ public class ListaDependenteActivity extends AppCompatActivity {
         configuraLista();
 
 
-       daoDepend.salva(new Dependente("Joaquim de Paula", "29031999", "Rua sem nome", "22223333"));
-       daoDepend.salva(new Dependente("Maria Florisbela", "29031999", "Rua sem saida", "999999999"));
+//       daoDepend.salva(new Dependente("Joaquim de Paula", "29031999", "Rua sem nome", "22223333"));
+//       daoDepend.salva(new Dependente("Maria Florisbela", "29031999", "Rua sem saida", "999999999"));
 
     }
 

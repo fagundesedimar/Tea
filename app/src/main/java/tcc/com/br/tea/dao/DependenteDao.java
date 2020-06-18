@@ -19,6 +19,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,15 +34,17 @@ public class DependenteDao {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-    public void addDependenteFireBase(final Dependente dependente) {
+    public void addDependenteFireBase(Dependente dependente) {//( Dependente dependente)
        // FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
         Map<String, Object> dep = new HashMap<>();
-        dep.put("id", dependente.getId());
-        dep.put("nome", dependente.getNome());
-        dep.put("contato", dependente.getContato());
-        dep.put("nascimento", dependente.getDataNascimento());
+        dep.put("listaDependente", Arrays.asList(dependente.getId(), dependente.getNome(), dependente.getContato(),
+                dependente.getDataNascimento()));
+//        dep.put("id", dependente.getId());
+//        dep.put("nome", dependente.getNome());
+//        dep.put("contato", dependente.getContato());
+//        dep.put("nascimento", dependente.getDataNascimento());
 
         Log.i(TAG, "Documento adicionado com ID: " + dep);
 
@@ -54,7 +57,7 @@ public class DependenteDao {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                salva(dependente);
+                //salva(dependente);
                 Log.w(TAG, "Erro em Registro Firebase!!", e);
 
             }
@@ -66,6 +69,7 @@ public class DependenteDao {
         dependente.setId(contadorDeIds);
         dependentes.add(dependente);
         atualizaIds();
+        addDependenteFireBase(dependente);
     }
 
     private static void atualizaIds() {
@@ -90,7 +94,7 @@ public class DependenteDao {
     }
 
     public void retornaDependenteFirebase() {
-        final Dependente dependente;
+        final Dependente[] dependente = new Dependente[1];
        // FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 //        DocumentReference docRef = db.collection("deps").document("deps");
@@ -115,11 +119,14 @@ public class DependenteDao {
         db.collection("deps").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        dependente[0] = new Dependente();
+                        int cont = 0;
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
+                                cont = cont + 1;
                                 Log.d(TAG, document.getId() + " => " + document.getData());
-                                //dependentes = (List<Dependente>) document.getData();
-//                                dependente = new Dependente();
+//                                dependentes = (List<Dependente>) document.getData();
+//                                dependente[cont] = ;
                                 Log.i(TAG, "DEPENDENTES RETORNADOS DO FIREBASE: " + dependentes);
 
                             }
