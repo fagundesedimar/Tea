@@ -17,9 +17,11 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.remote.Stream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,18 +37,18 @@ public class DependenteDao {
 
 
     public void addDependenteFireBase(Dependente dependente) {//( Dependente dependente)
-       // FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+        // FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         Map<String, Object> dep = new HashMap<>();
-        dep.put("listaDependente", Arrays.asList(dependente.getId(), dependente.getNome(), dependente.getContato(),
-                dependente.getDataNascimento()));
-//        dep.put("id", dependente.getId());
-//        dep.put("nome", dependente.getNome());
-//        dep.put("contato", dependente.getContato());
-//        dep.put("nascimento", dependente.getDataNascimento());
+//        dep.put("listaDependente", Arrays.asList("id", dependente.getId(), "nome", dependente.getNome(), "contato",
+//                dependente.getContato(), "nascimento", dependente.getDataNascimento(), "endereço", dependente.getEndereco()));
+        dep.put("id", dependente.getId());
+        dep.put("nome", dependente.getNome());
+        dep.put("contato", dependente.getContato());
+        dep.put("nascimento", dependente.getDataNascimento());
+        dep.put("endereco", dependente.getEndereco());
 
-        Log.i(TAG, "Documento adicionado com ID: " + dep);
+//        Log.i(TAG, "Documento adicionado com ID: " + dep);
 
         db.collection("deps").add(dep).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
@@ -94,63 +96,69 @@ public class DependenteDao {
     }
 
     public void retornaDependenteFirebase() {
-        final Dependente[] dependente = new Dependente[1];
-       // FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-//        DocumentReference docRef = db.collection("deps").document("deps");
-//
-//        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//        db.collection("deps").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 //            @Override
-//            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//
 //                if (task.isSuccessful()) {
-//                    DocumentSnapshot document = task.getResult();
-//                    if (document.exists()) {
-//                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-//                    } else {
-//                        Log.d(TAG, "ESSE DOCUMENTO NAO EXISTE!!!");
+//                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                        Log.d(TAG, document.getId() + " => " + document.getData());
+//                        List<Dependente> types = task.getResult().toObjects(Dependente.class);
+//                        dependentes.addAll(types);
+//                        Log.d(TAG, document.getId() + " ==>> " + types);
 //                    }
 //                } else {
-//                    Log.d(TAG, "ERRO DO FIREBASE: ", task.getException());
+//                    Log.d(TAG, "Error de retornar dependentes do FireBase: ", task.getException());
 //                }
 //            }
 //        });
+//    }
 
 
-        db.collection("deps").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+        db.collection("deps").get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        dependente[0] = new Dependente();
-                        int cont = 0;
                         if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                cont = cont + 1;
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-//                                dependentes = (List<Dependente>) document.getData();
-//                                dependente[cont] = ;
-                                Log.i(TAG, "DEPENDENTES RETORNADOS DO FIREBASE: " + dependentes);
+                            if (task.getResult() != null) {
+                                List<Dependente> dependentesinfoList = task.getResult().toObjects(Dependente.class);
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    final Map<String, Object> data = document.getData();
 
+                                   // dependentes = data.toString();
+
+                                    //Log.i(TAG, "Documento adicionado com ID: " + dependentesinfoList);
+                                    Log.d(TAG, " ==>> " + dependentesinfoList);
+                                    Log.d(TAG, " ==>> " + dependentes);
+                                }
                             }
-                        } else {
-                            Log.d(TAG, "Error de retornar dependentes do FireBase: ", task.getException());
-                        }
+                        }else {
+                        Log.w(TAG, "Error getting documents.", task.getException());
                     }
-                });
+                }
+         });
+    }
+
+        private void retornoDosDependentes (int id, String nome, String contato, String dataNascimento, String endereco){
+            Dependente dependente = new Dependente(id, nome, contato, dataNascimento, endereco);
+            dependentes.add(dependente);
+        }
+
+
+        //mandando copia da lista de dependente para as modificaçoes
+        public List<Dependente> todosDepend () {
+            retornaDependenteFirebase();
+            return new ArrayList<>(dependentes);
+        }
+
+        // Ver se é realmente necessario criar, acredido que remover um dependente não
+        // é viavel, pensando na regra de negocio do app, pois todos os dados
+        // são muito importantes as estimativas, uma vez removido perderiamos os dados desse dependentes
+        public void desabilitaDependente (Dependente dependente){
+
+        }
 
 
     }
-
-    //mandando copia da lista de dependente para as modificaçoes
-    public List<Dependente> todosDepend() {
-        retornaDependenteFirebase();
-        return new ArrayList<>(dependentes);
-    }
-
-    // Ver se é realmente necessario criar, acredido que remover um dependente não
-    // é viavel, pensando na regra de negocio do app, pois todos os dados
-    // são muito importantes as estimativas, uma vez removido perderiamos os dados desse dependentes
-    public void desabilitaDependente(Dependente dependente) {
-
-    }
-
-
-}

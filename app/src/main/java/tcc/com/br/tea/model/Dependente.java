@@ -10,7 +10,8 @@ public class Dependente implements Serializable {
     private String endereco;
     private String contato;
 
-    public Dependente(String nome, String dataNascimento, String endereco, String contato) {
+    public Dependente(int id, String nome, String dataNascimento, String endereco, String contato) {
+        this.id = id;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;

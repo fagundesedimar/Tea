@@ -60,6 +60,7 @@ public class ListaDependenteActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        daoDepend.retornaDependenteFirebase();
         atualizaDependente();
     }
 
