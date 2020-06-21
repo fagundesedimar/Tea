@@ -1,11 +1,13 @@
 package tcc.com.br.tea.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import tcc.com.br.tea.R;
@@ -21,23 +23,25 @@ public class ListaDependenteActivity extends AppCompatActivity {
     private final DependenteDao daoDepend = new DependenteDao();
     private ListaDependentesAdapter adapter;
 
-// Listar todos os dependentes de responsavel.
+    // Listar todos os dependentes de responsavel.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_dependente);
         setTitle(TITULO_APPBAR);
+
+
         configuraFabNovoDependente();
         configuraLista();
 
 
-//       daoDepend.salva(new Dependente("Joaquim de Paula", "29031999", "Rua sem nome", "22223333"));
-//       daoDepend.salva(new Dependente("Maria Florisbela", "29031999", "Rua sem saida", "999999999"));
-
     }
 
+
+
+
     private void configuraLista() {
-       // List<Dependente> dependentes = new DependenteDao().todosDepend();
+        // List<Dependente> dependentes = new DependenteDao().todosDepend();
         ListView listaDependente = findViewById(R.id.activity_lista_dependente_listView);
         configuraAdapter(listaDependente);
         configuraListenerDeCliquePorItem(listaDependente);
@@ -60,13 +64,14 @@ public class ListaDependenteActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
         daoDepend.retornaDependenteFirebase();
         atualizaDependente();
+
     }
 
     private void atualizaDependente() {
-       adapter.atualiza(daoDepend.todosDepend());
-       // adapter.atualiza(daoDepend.retornaDependenteFirebase());
+        adapter.atualiza(daoDepend.todosDepend());
     }
 
     private void configuraListenerDeCliquePorItem(ListView listaDeDependentes) {
@@ -86,8 +91,8 @@ public class ListaDependenteActivity extends AppCompatActivity {
     }
 
     private void configuraAdapter(ListView listaDeDependentes) {
-        adapter = new ListaDependentesAdapter(daoDepend.todosDepend(),this);
-       // adapter = new ListaDependentesAdapter(daoDepend.retornaDependenteFirebase(),this);
+        adapter = new ListaDependentesAdapter(daoDepend.todosDepend(), this);
+        // adapter = new ListaDependentesAdapter(daoDepend.retornaDependenteFirebase(),this);
         listaDeDependentes.setAdapter(adapter);
     }
 

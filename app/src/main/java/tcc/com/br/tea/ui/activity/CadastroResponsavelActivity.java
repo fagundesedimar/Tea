@@ -157,7 +157,6 @@ public class CadastroResponsavelActivity extends AppCompatActivity {
 
     private void addResponsavel() {
 
-//        resp.setUid(UUID.randomUUID().toString(),
         listaResponsavel.clear();
 
         Responsavel resp = new Responsavel(

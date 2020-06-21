@@ -9,6 +9,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.common.primitives.Ints;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.annotations.Nullable;
@@ -36,19 +37,14 @@ public class DependenteDao {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-    public void addDependenteFireBase(Dependente dependente) {//( Dependente dependente)
-        // FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+    public void addDependenteFireBase(Dependente dependente) {
         Map<String, Object> dep = new HashMap<>();
-//        dep.put("listaDependente", Arrays.asList("id", dependente.getId(), "nome", dependente.getNome(), "contato",
-//                dependente.getContato(), "nascimento", dependente.getDataNascimento(), "endereço", dependente.getEndereco()));
+
         dep.put("id", dependente.getId());
         dep.put("nome", dependente.getNome());
         dep.put("contato", dependente.getContato());
         dep.put("nascimento", dependente.getDataNascimento());
         dep.put("endereco", dependente.getEndereco());
-
-//        Log.i(TAG, "Documento adicionado com ID: " + dep);
 
         db.collection("deps").add(dep).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
@@ -59,7 +55,6 @@ public class DependenteDao {
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                //salva(dependente);
                 Log.w(TAG, "Erro em Registro Firebase!!", e);
 
             }
@@ -97,68 +92,39 @@ public class DependenteDao {
 
     public void retornaDependenteFirebase() {
 
-//        db.collection("deps").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//
-//                if (task.isSuccessful()) {
-//                    for (QueryDocumentSnapshot document : task.getResult()) {
-//                        Log.d(TAG, document.getId() + " => " + document.getData());
-//                        List<Dependente> types = task.getResult().toObjects(Dependente.class);
-//                        dependentes.addAll(types);
-//                        Log.d(TAG, document.getId() + " ==>> " + types);
-//                    }
-//                } else {
-//                    Log.d(TAG, "Error de retornar dependentes do FireBase: ", task.getException());
-//                }
-//            }
-//        });
-//    }
-
-
-
         db.collection("deps").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             if (task.getResult() != null) {
-                                List<Dependente> dependentesinfoList = task.getResult().toObjects(Dependente.class);
+//                                List<Dependente> dependentesinfoList = task.getResult().toObjects(Dependente.class);
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    final Map<String, Object> data = document.getData();
 
-                                   // dependentes = data.toString();
-
-                                    //Log.i(TAG, "Documento adicionado com ID: " + dependentesinfoList);
-                                    Log.d(TAG, " ==>> " + dependentesinfoList);
+                                    dependentes = task.getResult().toObjects(Dependente.class);
+//                                    Log.d(TAG, " ==>> " + dependentesinfoList);
                                     Log.d(TAG, " ==>> " + dependentes);
                                 }
                             }
-                        }else {
-                        Log.w(TAG, "Error getting documents.", task.getException());
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
                     }
-                }
-         });
+                });
     }
 
-        private void retornoDosDependentes (int id, String nome, String contato, String dataNascimento, String endereco){
-            Dependente dependente = new Dependente(id, nome, contato, dataNascimento, endereco);
-            dependentes.add(dependente);
-        }
+    //mandando copia da lista de dependente para as modificaçoes
+    public List<Dependente> todosDepend() {
+        retornaDependenteFirebase();
+        return new ArrayList<>(dependentes);
+    }
 
-
-        //mandando copia da lista de dependente para as modificaçoes
-        public List<Dependente> todosDepend () {
-            retornaDependenteFirebase();
-            return new ArrayList<>(dependentes);
-        }
-
-        // Ver se é realmente necessario criar, acredido que remover um dependente não
-        // é viavel, pensando na regra de negocio do app, pois todos os dados
-        // são muito importantes as estimativas, uma vez removido perderiamos os dados desse dependentes
-        public void desabilitaDependente (Dependente dependente){
-
-        }
-
+    // Ver se é realmente necessario criar, acredido que remover um dependente não
+    // é viavel, pensando na regra de negocio do app, pois todos os dados
+    // são muito importantes as estimativas, uma vez removido perderiamos os dados desse dependentes
+    public void desabilitaDependente(Dependente dependente) {
 
     }
+
+}
+

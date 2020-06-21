@@ -54,7 +54,6 @@ public class CadastroDependenteActivity extends AppCompatActivity {
             dependenteDao.edita(dependente);
         } else {
             dependenteDao.salva(dependente);
-            //dependenteDao.addDependenteFireBase(dependente);
         }
         finish();
     }
