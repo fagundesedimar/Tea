@@ -30,15 +30,10 @@ public class ListaDependenteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_dependente);
         setTitle(TITULO_APPBAR);
 
-
         configuraFabNovoDependente();
         configuraLista();
 
-
     }
-
-
-
 
     private void configuraLista() {
         // List<Dependente> dependentes = new DependenteDao().todosDepend();
@@ -79,15 +74,23 @@ public class ListaDependenteActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
                 Dependente dependenteEscolhido = (Dependente) adapterView.getItemAtPosition(posicao);
-                abreCadastroModoEditaDependente(dependenteEscolhido);
+
+                abreStatusDependentePorClickCurto(dependenteEscolhido);
+                //abreCadastroModoEditaDependentePorClickLongo(dependenteEscolhido);
             }
         });
     }
 
-    private void abreCadastroModoEditaDependente(Dependente dependente) {
+    // Metodo responsavel por abrir os dados do dependente para editar, caso o cadastro seja feito e/ou digitado errado
+    private void abreCadastroModoEditaDependentePorClickLongo(Dependente dependente) {
         Intent vaiParaCadastroDependenteActivity = new Intent(ListaDependenteActivity.this, CadastroDependenteActivity.class);
         vaiParaCadastroDependenteActivity.putExtra(CHAVE_DEPENDENTE, dependente);
         startActivity(vaiParaCadastroDependenteActivity);
+    }
+
+    private void abreStatusDependentePorClickCurto(Dependente dependente) {
+        Intent vaiParaInfoDependenteActivity = new Intent(ListaDependenteActivity.this, InformacaoAoResponsavelActivity.class);
+        startActivity(vaiParaInfoDependenteActivity );
     }
 
     private void configuraAdapter(ListView listaDeDependentes) {
