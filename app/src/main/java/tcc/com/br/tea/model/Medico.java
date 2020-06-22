@@ -1,14 +1,42 @@
 package tcc.com.br.tea.model;
 
 public class Medico {
-    private final String nome;
-    private final String crm;
-    private final String senha;
+    private String nome;
+    private String crm;
+    private String senha;
 
 
     public Medico(String nome, String crm, String senha) {
         this.nome = nome;
         this.crm = crm;
+        this.senha = senha;
+    }
+
+    public Medico() {
+
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCrm() {
+        return crm;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setCrm(String crm) {
+        this.crm = crm;
+    }
+
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 

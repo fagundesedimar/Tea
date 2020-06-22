@@ -43,8 +43,6 @@ public class LoginMedicoActivity extends AppCompatActivity {
 
 
 
-
-
     }
 
 

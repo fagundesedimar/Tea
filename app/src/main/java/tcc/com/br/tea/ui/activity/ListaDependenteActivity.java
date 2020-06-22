@@ -32,6 +32,7 @@ public class ListaDependenteActivity extends AppCompatActivity {
 
         configuraFabNovoDependente();
         configuraLista();
+        atualizaDependente();
 
     }
 
