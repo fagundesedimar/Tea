@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<!--    android:background="@drawable/nuvem">-->
 <!--    RECOMENDAÇÕES-->
 
     <ImageView
@@ -55,16 +54,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.9" />
 
-
     <!--        AINDA SERÁ PENSADO MELHOR MANEIRA PARA ADD RECOMENDAÇOES-->
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="116dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
+        android:id="@+id/recomendaçoes_para_dependente"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:text="Recomendações"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:autoSizeTextType="uniform"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,8 @@ public class CadastroMedicoActivity extends AppCompatActivity {
     private EditText campoNome;
     private EditText campoCrm;
     private EditText campoSenha;
+    private EditText campoConfirmaSenha;
+
 
 
     @Override
@@ -80,6 +82,8 @@ public class CadastroMedicoActivity extends AppCompatActivity {
         String nome = campoNome.getText().toString();
         String srm = campoCrm.getText().toString();
         String senha = campoSenha.getText().toString();
+        String Confirmasenha = campoConfirmaSenha.getText().toString();
+
 
         return new Medico(nome,srm, senha);
 
