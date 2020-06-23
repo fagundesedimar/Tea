@@ -32,10 +32,10 @@ public class MedicoDao {
     public void addMedicoFireBase(Medico medico) {
 
         Map<String, Object> med = new HashMap<>();
-                med.put("id", medico.getNome());
+
         med.put("nome", medico.getNome());
-        med.put("nome", medico.getCrm());
-        med.put("nome", medico.getSenha());
+        med.put("crm", medico.getCrm());
+        med.put("senha", medico.getSenha());
 
 
         db.collection("medicos").add(med).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
@@ -81,8 +81,10 @@ public class MedicoDao {
     public void salvaMedicos(Medico medico){
         medicos.add(medico);
         addMedicoFireBase(medico);
-
     }
 
 
+    public void editaMed(Medico medico) {
+
+    }
 }
