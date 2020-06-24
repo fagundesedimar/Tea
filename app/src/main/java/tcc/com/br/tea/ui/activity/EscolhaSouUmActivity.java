@@ -17,7 +17,7 @@ import tcc.com.br.tea.R;
 
 public class EscolhaSouUmActivity extends AppCompatActivity {
 
-    public static final String TITULO_APPBAR = "SEJA BEM VINDO  : )";
+    public static final String TITULO_APPBAR = "VOCÊ É UM ?";
 
     private FirebaseAuth auth;
     private FirebaseUser user;

@@ -20,7 +20,6 @@
         android:id="@+id/bnt_salvar_recomen_medicas"
         android:layout_width="139dp"
         android:layout_height="40dp"
-
         android:layout_marginStart="34dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A8A8A8"
