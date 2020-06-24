@@ -39,6 +39,25 @@ public class InformacaoAoResponsavelActivity extends AppCompatActivity {
             }
         });
 
+        Button botaoAddCrisesDoDep = findViewById(R.id.btn_addCrises_inf_ao_respons);
+        botaoAddCrisesDoDep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(InformacaoAoResponsavelActivity.this, RegistrarCriseActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Botao responsavel para mostra alertas de crises da escola, como alguma observaçoes feita pelo professor
+        Button botaoAlerta = findViewById(R.id.btn_alerta_inf_ao_respons);
+        botaoAlerta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(InformacaoAoResponsavelActivity.this, VerRecomendacoesActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

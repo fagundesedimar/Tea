@@ -31,26 +31,7 @@ public class MedicoDao {
 
     public void addMedicoFireBase(Medico medico) {
 
-        Map<String, Object> med = new HashMap<>();
 
-        med.put("nome", medico.getNome());
-        med.put("crm", medico.getCrm());
-        med.put("senha", medico.getSenha());
-
-
-        db.collection("medicos").add(med).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Log.d(TAG, "Documento medicos adicionado com ID: " + documentReference.getId());
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.w(TAG, "Erro em Registrar Medicos Firebase!!", e);
-
-            }
-        });
     }
 
     public void retornaMedicoFirebase() {

@@ -30,11 +30,11 @@ public class ListaPacientesMedicoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_lista_pacientes_medico);
-        setContentView(R.layout.activity_lista_dependente);
+        setContentView(R.layout.activity_lista_pacientes_medico);
 
         setTitle(TITULO_APPBAR);
 
-        configuraFabNovoDependente();
+//        configuraFabNovoDependente();
         configuraLista();
         atualizaDependente();
     }
@@ -44,16 +44,6 @@ public class ListaPacientesMedicoActivity extends AppCompatActivity {
         ListView listaDependente = findViewById(R.id.activity_lista_dependente_listView);
         configuraAdapter(listaDependente);
         configuraListenerDeCliquePorItem(listaDependente);
-    }
-
-    private void configuraFabNovoDependente() {
-        FloatingActionButton btbNovoDependente = findViewById(R.id.floating_btn_add_dependente);
-        btbNovoDependente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                abreCadastroDependenteActivity();
-            }
-        });
     }
 
     private void abreCadastroDependenteActivity() {
@@ -93,7 +83,7 @@ public class ListaPacientesMedicoActivity extends AppCompatActivity {
     }
 
     private void abreStatusDependentePorClickCurto(Dependente dependente) {
-        Intent vaiParaInfoDependenteActivity = new Intent(ListaPacientesMedicoActivity.this, InformacaoAoResponsavelActivity.class);
+        Intent vaiParaInfoDependenteActivity = new Intent(ListaPacientesMedicoActivity.this, MenuMedicoActivity.class);
         startActivity(vaiParaInfoDependenteActivity );
     }
 

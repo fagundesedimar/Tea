@@ -11,6 +11,6 @@ public class MenuDependenteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_dependente);
+        setContentView(R.layout.activity_menu_dependente); //Possivel alteração
     }
 }

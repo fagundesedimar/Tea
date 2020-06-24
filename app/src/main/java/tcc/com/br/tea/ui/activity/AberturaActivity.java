@@ -40,7 +40,7 @@ public class AberturaActivity extends AppCompatActivity implements  Runnable {
         try {
             while (i <= 100) {
 
-                Thread.sleep(50);
+                Thread.sleep(20);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {

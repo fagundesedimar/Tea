@@ -18,21 +18,21 @@ public class RecomendacoMedicaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recomendacao_medica);
 
-        configuraTextViewRecomendacao();
+//        configuraTextViewRecomendacao();
 
     }
 
-    @SuppressLint("WrongViewCast")
-    private void configuraTextViewRecomendacao() {
-        recomendaçoesParaDependente = (EditText) findViewById(R.id.recomendaçoes_para_dependente);
-
-        TextViewCompat
-                .setAutoSizeTextTypeWithDefaults(
-                        recomendaçoesParaDependente, /* TextView. */
-                        TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM /* Configuração. */
-                );
-
-    }
+//    @SuppressLint("WrongViewCast")
+//    private void configuraTextViewRecomendacao() {
+//        recomendaçoesParaDependente = (EditText) findViewById(R.id.recomendaçoes_para_dependente);
+//
+//        TextViewCompat
+//                .setAutoSizeTextTypeWithDefaults(
+//                        recomendaçoesParaDependente, /* TextView. */
+//                        TextViewCompat.AUTO_SIZE_TEXT_TYPE_UNIFORM /* Configuração. */
+//                );
+//
+//    }
 
 
 }
