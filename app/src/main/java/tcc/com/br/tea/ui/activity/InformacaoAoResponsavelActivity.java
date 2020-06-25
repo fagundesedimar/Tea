@@ -53,7 +53,7 @@ public class InformacaoAoResponsavelActivity extends AppCompatActivity {
         botaoAlerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(InformacaoAoResponsavelActivity.this, VerRecomendacoesActivity.class);
+                Intent intent = new Intent(InformacaoAoResponsavelActivity.this, MenuAlertaDependenteActivity.class);
                 startActivity(intent);
             }
         });

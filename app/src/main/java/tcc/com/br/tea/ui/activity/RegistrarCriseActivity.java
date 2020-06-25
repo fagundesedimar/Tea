@@ -51,7 +51,7 @@ public class RegistrarCriseActivity extends AppCompatActivity implements OnMapRe
     private static final String TAG = "";
 
     private GoogleMap mMap;
-    private Marker currentLocationMaker;
+    public Marker currentLocationMaker;
     private LatLng currentLocationLatLong;
 
     private EditText observacao;
@@ -100,6 +100,10 @@ public class RegistrarCriseActivity extends AppCompatActivity implements OnMapRe
 
         int cont = 0;
 
+        // if para teste de geocalizacao
+        if (currentLocationMaker != null) {
+            currentLocationMaker.remove();
+        }
         Map<String, Object> obs = new HashMap<>();
 
         obs.put("observaçoesPeloResponsavel", textoDeObs);
@@ -126,6 +130,7 @@ public class RegistrarCriseActivity extends AppCompatActivity implements OnMapRe
 
     }
 
+
     @Override
     public void onLocationChanged(Location location) {
 
@@ -139,6 +144,7 @@ public class RegistrarCriseActivity extends AppCompatActivity implements OnMapRe
 //        markerOptions.title("Localização atual");
 //        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
 //        currentLocationMaker = mMap.addMarker(markerOptions);
+
 
     }
 

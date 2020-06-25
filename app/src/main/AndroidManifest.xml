@@ -35,7 +35,7 @@
         <activity android:name=".ui.activity.LoginMedicoActivity" />
         <activity android:name=".ui.activity.LoginProfActivity" />
         <activity android:name=".ui.activity.LoginResponsavelActivity" />
-        <activity android:name=".ui.activity.MenuDependenteActivity" />
+        <activity android:name=".ui.activity.MenuAlertaDependenteActivity" />
         <activity android:name=".ui.activity.MenuMedicoActivity" />
         <activity android:name=".ui.activity.RecomendacoMedicaActivity" />
         <activity android:name=".ui.activity.RegistrarCriseActivity" />
