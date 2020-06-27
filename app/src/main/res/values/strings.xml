@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Tea" />
-    <string name="title_activity_sou_um" />
-    <string name="app_name" />
+    <string name="app_name">Cate</string>
 </resources>

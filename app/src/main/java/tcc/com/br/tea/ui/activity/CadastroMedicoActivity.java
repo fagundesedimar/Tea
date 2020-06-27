@@ -17,7 +17,7 @@ public class CadastroMedicoActivity extends AppCompatActivity {
 
     private static final String TAG = "";
 
-    public static final String TITULO_APPBAR = "CADASTRO MEDICO";
+    public static final String TITULO_APPBAR = "CADASTRO MEDICO(A)";
     private final MedicoDao medicoDao = new MedicoDao();
     private Medico medico;
     private EditText campoNome;

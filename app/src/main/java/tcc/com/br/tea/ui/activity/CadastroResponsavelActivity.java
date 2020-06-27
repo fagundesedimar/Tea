@@ -58,6 +58,8 @@ public class CadastroResponsavelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_responsavel);
 
+        setTitle(TITULO_APPBAR);
+
         inicializarFirebase();
         inicializandoCamposRes();
         auth = FirebaseAuth.getInstance();

@@ -34,6 +34,15 @@ public class EscolhaSouUmActivity extends AppCompatActivity {
 
         estatoAutenticacao();
 
+        Button botaoSouProfessor = findViewById(R.id.btn_sou_professor);
+        botaoSouProfessor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EscolhaSouUmActivity.this, LoginProfActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Button botaoSouMedico = findViewById(R.id.btn_sou_medico);
         botaoSouMedico.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,14 +69,6 @@ public class EscolhaSouUmActivity extends AppCompatActivity {
             }
         });
 
-        Button botaoSouProfessor = findViewById(R.id.btn_sou_professor);
-        botaoSouProfessor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(EscolhaSouUmActivity.this, LoginProfActivity.class);
-                startActivity(intent);
-            }
-        });
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);

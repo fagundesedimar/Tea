@@ -42,18 +42,12 @@ public class LoginResponsavelActivity extends AppCompatActivity {
         campoSenha = findViewById(R.id.text_senha_login_responsavel);
 
         setTitle(TITULO_APPBAR);
-//        btnEntrarLoginRespon = (Button) findViewById(R.id.btn_entrar_login_responsavel);
-//        btnEntrarLoginRespon.setOnClickListener((View.OnClickListener) this);
-//        btnNovoCadastro = (Button) findViewById(R.id.btn_novoCadastro_login_responsavel);
-//        btnNovoCadastro.setOnClickListener((View.OnClickListener) this);
 
         Button btnEntrarLoginRespon = findViewById(R.id.btn_entrar_login_responsavel);
         btnEntrarLoginRespon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(LoginResponsavelActivity.this, ListaDependenteActivity.class);
                 loginEmail();
-                //startActivity(intent);
             }
         });
 

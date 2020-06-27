@@ -46,7 +46,7 @@ public class DependenteDao {
         dep.put("nascimento", dependente.getDataNascimento());
         dep.put("endereco", dependente.getEndereco());
 
-        db.collection("deps").add(dep).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection("dependentes").add(dep).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Log.d(TAG, "Documento adicionado com ID: " + documentReference.getId());
@@ -92,7 +92,7 @@ public class DependenteDao {
 
     public void retornaDependenteFirebase() {
 
-        db.collection("deps").get()
+        db.collection("dependentes").get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
