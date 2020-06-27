@@ -2,10 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tcc.com.br.tea">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -21,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.EscolhaSouUmActivity"/>
+        <activity android:name=".ui.activity.EscolhaSouUmActivity" />
         <activity android:name=".ui.activity.CadastroDependenteActivity" />
         <activity android:name=".ui.activity.CadastroMedicoActivity" />
         <activity android:name=".ui.activity.CadastroProfActivity" />
@@ -37,6 +36,7 @@
         <activity android:name=".ui.activity.LoginResponsavelActivity" />
         <activity android:name=".ui.activity.MenuAlertaDependenteActivity" />
         <activity android:name=".ui.activity.MenuMedicoActivity" />
+        <activity android:name=".ui.activity.MenuProfActivity"/>
         <activity android:name=".ui.activity.RecomendacoMedicaActivity" />
         <activity android:name=".ui.activity.RegistrarCriseActivity" />
         <activity android:name=".ui.activity.VerMedicamentoActivity" />
@@ -44,5 +44,3 @@
     </application>
 
 </manifest>
-
-<!--    ui.activity.AberturaActivity-->

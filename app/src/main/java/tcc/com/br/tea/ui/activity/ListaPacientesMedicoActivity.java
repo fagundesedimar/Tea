@@ -17,6 +17,7 @@ import tcc.com.br.tea.model.Dependente;
 import tcc.com.br.tea.ui.adapter.ListaDependentesAdapter;
 
 import static tcc.com.br.tea.ui.activity.ConstantesActivities.CHAVE_DEPENDENTE;
+import static tcc.com.br.tea.ui.activity.ConstantesActivities.CHAVE_MEDICO;
 
 public class ListaPacientesMedicoActivity extends AppCompatActivity {
 
@@ -24,7 +25,9 @@ public class ListaPacientesMedicoActivity extends AppCompatActivity {
     private final DependenteDao daoDepend = new DependenteDao();
     private ListaDependentesAdapter adapter;
 
-    public static final String TITULO_APPBAR = "LISTA PACIENTE";
+    public static final String TITULO_APPBAR_MEDICO = "LISTA PACIENTES";
+    public static final String TITULO_APPBAR_PROF = "LISTA ALUNOS";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +35,28 @@ public class ListaPacientesMedicoActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_lista_pacientes_medico);
         setContentView(R.layout.activity_lista_pacientes_medico);
 
-        setTitle(TITULO_APPBAR);
+        //setTitle(TITULO_APPBAR);
 
 //        configuraFabNovoDependente();
-        configuraLista();
-        atualizaDependente();
+        //configuraLista();
+        //atualizaDependente();
+        carragrDependente();
     }
+
+    private void carragrDependente() {
+        Intent dados = getIntent();
+        if (dados.hasExtra(CHAVE_MEDICO)) {
+            setTitle(TITULO_APPBAR_MEDICO);
+            configuraLista();
+            atualizaDependente();
+        } else {
+            setTitle(TITULO_APPBAR_PROF);
+            configuraLista();
+            atualizaDependente();
+        }
+
+    }
+
 
     private void configuraLista() {
         // List<Dependente> dependentes = new DependenteDao().todosDepend();

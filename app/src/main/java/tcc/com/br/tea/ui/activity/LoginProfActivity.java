@@ -34,7 +34,7 @@ public class LoginProfActivity extends AppCompatActivity {
         btnEntrarLoginProf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginProfActivity.this, ListaDependenteActivity.class);
+                Intent intent = new Intent(LoginProfActivity.this, ListaPacientesMedicoActivity.class);
                 startActivity(intent);
             }
         });
