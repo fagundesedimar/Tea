@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<!--    android:background="@drawable/nuvem">-->
+    <!--    android:background="@drawable/nuvem">-->
 
     <!--    <TextView-->
-<!--        android:id="@+id/text_titulo_inser_medicamento"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:text="INSIRA OS MEDICAMENTOS:"-->
-<!--        android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--        android:id="@+id/text_titulo_inser_medicamento"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="5dp"-->
+    <!--        android:text="INSIRA OS MEDICAMENTOS:"-->
+    <!--        android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <ImageView
         android:layout_width="0dp"
@@ -35,6 +35,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:hint="Remédio:"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,18 +58,19 @@
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
         android:ems="10"
+        android:hint="Uso, Dosagem e Horários:"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento1" />
 
-<!--    <Switch-->
-<!--        android:id="@+id/switch2_ins_medicamento"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:ignore="MissingConstraints"-->
-<!--        tools:layout_editor_absoluteX="330dp"-->
-<!--        tools:layout_editor_absoluteY="105dp" />-->
+    <!--    <Switch-->
+    <!--        android:id="@+id/switch2_ins_medicamento"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        tools:ignore="MissingConstraints"-->
+    <!--        tools:layout_editor_absoluteX="330dp"-->
+    <!--        tools:layout_editor_absoluteY="105dp" />-->
 
     <EditText
         android:id="@+id/campo_ins_medicamento3"
@@ -76,6 +78,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:hint="Remédio:"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,20 +101,21 @@
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
         android:ems="10"
+        android:hint="Uso, Dosagem e Horários:"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento3" />
 
-<!--    <Switch-->
-<!--        android:id="@+id/switch4_ins_medicamento"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.504"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento4"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/campo_ins_medicamento4"-->
-<!--        tools:ignore="MissingConstraints" />-->
+    <!--    <Switch-->
+    <!--        android:id="@+id/switch4_ins_medicamento"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.504"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento4"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/campo_ins_medicamento4"-->
+    <!--        tools:ignore="MissingConstraints" />-->
 
     <EditText
         android:id="@+id/campo_ins_medicamento5"
@@ -119,6 +123,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:hint="Remédio:"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,20 +147,21 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textMultiLine"
+        android:hint="Uso, Dosagem e Horários:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento5" />
 
 
-<!--    <Switch-->
-<!--        android:id="@+id/switc6_ins_medicamento"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.504"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento6"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/campo_ins_medicamento6"-->
-<!--        tools:ignore="MissingConstraints,NewApi" />-->
+    <!--    <Switch-->
+    <!--        android:id="@+id/switc6_ins_medicamento"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.504"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/campo_ins_medicamento6"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/campo_ins_medicamento6"-->
+    <!--        tools:ignore="MissingConstraints,NewApi" />-->
 
     <EditText
         android:id="@+id/campo_ins_medicamento7"
@@ -163,6 +169,7 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:hint="Remédio:"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -180,26 +187,28 @@
         tools:ignore="MissingConstraints,NewApi" />
 
     <EditText
-    android:id="@+id/campo_ins_medicamento8"
-    android:layout_width="249dp"
-    android:layout_height="0dp"
-    android:layout_marginTop="5dp"
-    android:ems="10"
-    android:inputType="textMultiLine"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento7" />
+        android:id="@+id/campo_ins_medicamento8"
+        android:layout_width="249dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:hint="Uso, Dosagem e Horários:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento7" />
 
     <EditText
-    android:id="@+id/campo_ins_medicamento9"
-    android:layout_width="249dp"
-    android:layout_height="0dp"
-    android:layout_marginTop="10dp"
-    android:ems="10"
-    android:inputType="textMultiLine"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento8" />
+        android:id="@+id/campo_ins_medicamento9"
+        android:layout_width="249dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Remédio:"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento8" />
 
     <Switch
         android:id="@+id/switc8_ins_medicamento"
@@ -219,6 +228,7 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textMultiLine"
+        android:hint="Uso, Dosagem e Horários:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento9" />
@@ -230,6 +240,7 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textMultiLine"
+        android:hint="Remédio:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento10" />
@@ -241,6 +252,7 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:inputType="textMultiLine"
+        android:hint="Uso, Dosagem e Horários:"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/campo_ins_medicamento11" />

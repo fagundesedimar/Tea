@@ -11,7 +11,7 @@ import tcc.com.br.tea.R;
 
 public class InformacaoAoResponsavelActivity extends AppCompatActivity {
 
-    public static final String TITULO_APPBAR = "MENU PACIENTE";
+    public static final String TITULO_APPBAR = "MENU DEPENDENTE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,15 @@ public class InformacaoAoResponsavelActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(InformacaoAoResponsavelActivity.this, MenuAlertaDependenteActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        Button botaoVinculaMedico = findViewById(R.id.btn_vincula_medico);
+        botaoVinculaMedico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // Intent intent = new Intent(InformacaoAoResponsavelActivity.this, .class);
+                //startActivity(intent);
             }
         });
 

@@ -22,7 +22,6 @@
         android:id="@+id/btn_medicameto_inf_ao_respons"
         android:layout_width="190dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
         android:background="@drawable/buttonshape"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
@@ -31,9 +30,12 @@
         android:text="MEDICAMENTOS"
         android:textColor="#140B8C"
         android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.058"/>
 
     <Button
         android:id="@+id/btn_addCrises_inf_ao_respons"
@@ -87,6 +89,23 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_addCrises_inf_ao_respons" />
 
     <Button
+        android:id="@+id/btn_vincula_medico"
+        android:layout_width="190dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Vincular Médico(a)"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_alerta_inf_ao_respons"
+        app:layout_constraintStart_toStartOf="@+id/btn_alerta_inf_ao_respons"
+        app:layout_constraintTop_toBottomOf="@+id/btn_alerta_inf_ao_respons" />
+
+    <Button
         android:id="@+id/btn_voltar_inf_ao_responsavel"
         android:layout_width="145dp"
         android:layout_height="40dp"
@@ -100,6 +119,26 @@
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <Button
+        android:id="@+id/btn_sair_inf_ao_responsavel"
+        android:layout_width="145dp"
+        android:layout_height="40dp"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:text="Sair"
+        android:textColor="#140B8C"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />

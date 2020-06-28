@@ -14,10 +14,11 @@ import tcc.com.br.tea.R;
 import tcc.com.br.tea.model.Dependente;
 
 public class ListaDependentesAdapter extends BaseAdapter {
+    
     private final List<Dependente> dependentes;
    // private final List<Dependente> dependentes = new ArrayList<>();
-
     private final Context context;
+
     public ListaDependentesAdapter(List<Dependente> dependentes, Context context) {
    // public ListaDependentesAdapter( Context context) {
         this.dependentes = dependentes;

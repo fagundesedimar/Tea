@@ -16,13 +16,134 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ListView
+        android:id="@+id/activity_lista_crises_dependente_listView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_crise" />
+
+
+
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/numero_da_crise_e_data_e_hora"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="5dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="5dp"-->
+<!--        android:text="1 - 31/05/2020 - 15:42:48"-->
+<!--        android:textSize="30dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/medicamento_da_crise"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="5dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginEnd="5dp"-->
+<!--        android:text="Trazodona"-->
+<!--        android:textSize="30dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/numero_da_crise_e_data_e_hora" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_obs_da_crise"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:layout_marginTop="586dp"-->
+<!--        android:background="@drawable/buttonshape"-->
+<!--        android:shadowColor="#A8A8A8"-->
+<!--        android:shadowDx="0"-->
+<!--        android:shadowDy="0"-->
+<!--        android:shadowRadius="5"-->
+<!--        android:text="Observação da crise"-->
+<!--        android:textColor="#140B8C"-->
+<!--        android:textSize="13sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/medicamento_da_crise"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/numero2_da_crise_e_data_e_hora"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="5dp"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:layout_marginEnd="5dp"-->
+<!--        android:text="2 - 06/06/2020 - 22:37:53"-->
+<!--        android:textSize="30dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_obs_da_crise" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/medicamento2_da_crise"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="5dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginEnd="5dp"-->
+<!--        android:text="Buspirona"-->
+<!--        android:textSize="30dp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/numero2_da_crise_e_data_e_hora" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn2_obs_da_crise"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:layout_marginTop="586dp"-->
+<!--        android:background="@drawable/buttonshape"-->
+<!--        android:shadowColor="#A8A8A8"-->
+<!--        android:shadowDx="0"-->
+<!--        android:shadowDy="0"-->
+<!--        android:shadowRadius="5"-->
+<!--        android:text="Observação da crise"-->
+<!--        android:textColor="#140B8C"-->
+<!--        android:textSize="13sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/medicamento2_da_crise"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
+
+
+
+
+
+
+
     <Button
         android:id="@+id/btn_voltar_Hist_crise_p_medico"
-
         android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
-
         android:background="@drawable/buttonshape"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
@@ -55,31 +176,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
-
-    <TextView
-        android:id="@+id/numero_da_crise"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:textSize="30dp"
-        android:text="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="409dp"-->
-<!--        android:layout_height="600dp"-->
-<!--        android:layout_marginStart="1dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginEnd="1dp"-->
-<!--        android:layout_marginBottom="1dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/btn_voltar_Hist_crise_p_medico"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
