@@ -42,7 +42,7 @@ public class MenuMedicoActivity extends AppCompatActivity {
         botaoCrises.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuMedicoActivity.this, RecomendacoMedicaActivity.class);
+                Intent intent = new Intent(MenuMedicoActivity.this, HistoricoCrisesPacienteParaMedico.class);
                 startActivity(intent);
             }
         });
