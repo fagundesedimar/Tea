@@ -8,9 +8,16 @@ import tcc.com.br.tea.R;
 
 public class InserirMedicamentoActivity extends AppCompatActivity {
 
+    public static final String TITULO_APPBAR = "INSIRA OS MEDICAMENTOS:";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inserir_medicamento);
+
+        setTitle(TITULO_APPBAR);
+
+
+
     }
 }

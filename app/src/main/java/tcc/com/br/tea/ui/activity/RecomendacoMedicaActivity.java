@@ -11,12 +11,16 @@ import tcc.com.br.tea.R;
 
 public class RecomendacoMedicaActivity extends AppCompatActivity {
 
+    public static final String TITULO_APPBAR = "INSERIR RECOMENDAÇÕES";
+
     private EditText recomendaçoesParaDependente;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recomendacao_medica);
+
+        setTitle(TITULO_APPBAR);
 
 //        configuraTextViewRecomendacao();
 

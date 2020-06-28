@@ -36,12 +36,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.95" />
 
     <EditText
         android:id="@+id/obs_informacao_da_crise"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="350dp"
         android:hint="Observações sobre a Crise."
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,8 +50,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/recado_de_crise_aos_responsavel"
+        android:layout_width="match_parent"
+        android:layout_height="263dp"
 
-<!--    <com.google.android.material.textfield.TextInputEditText-->
+        android:layout_marginBottom="5dp"
+        android:hint="Recado para os responsável."
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toTopOf="@+id/btn_alarme_registrar_crise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/obs_informacao_da_crise" />
+
+
+    <!--    <com.google.android.material.textfield.TextInputEditText-->
 <!--        android:id="@+id/obs_informacao_da_crise"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->

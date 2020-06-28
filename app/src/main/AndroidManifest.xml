@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ConfiguraSemafaroAlerta"></activity>
         <activity android:name=".ui.activity.AberturaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +37,7 @@
         <activity android:name=".ui.activity.LoginResponsavelActivity" />
         <activity android:name=".ui.activity.MenuAlertaDependenteActivity" />
         <activity android:name=".ui.activity.MenuMedicoActivity" />
-        <activity android:name=".ui.activity.MenuProfActivity"/>
+        <activity android:name=".ui.activity.MenuProfActivity" />
         <activity android:name=".ui.activity.RecomendacoMedicaActivity" />
         <activity android:name=".ui.activity.RegistrarCriseActivity" />
         <activity android:name=".ui.activity.VerMedicamentoActivity" />

@@ -103,6 +103,7 @@ public class ListaPacientesMedicoActivity extends AppCompatActivity {
 
     private void abreStatusDependentePorClickCurto(Dependente dependente) {
         Intent vaiParaInfoDependenteActivity = new Intent(ListaPacientesMedicoActivity.this, MenuMedicoActivity.class);
+//        Intent vaiParaInfoDependenteActivity = new Intent(ListaPacientesMedicoActivity.this, MenuProfActivity.class);
         startActivity(vaiParaInfoDependenteActivity );
     }
 
