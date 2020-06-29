@@ -134,6 +134,7 @@
         android:gravity="center_horizontal"
         android:layout_marginStart="10dp"
         android:text=" Sr. Medico(a), a configuração do semáforo é de sua responsabilidade, você pode escolher de 1 á 10, para configura-lo, verde de 1 ate o limite de sua escolha, por exemplo: 4, amarelho limite do verde mais 1, como exemplo: 5 ate o limite de sua escolha por exemplo: 8, vermelho limite do amarelho mais 1, adiante sinal vermelho, toda atenção possivel pois o tratamento não esta fazendo efeito."
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/conf_semaforo_vermelho"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
